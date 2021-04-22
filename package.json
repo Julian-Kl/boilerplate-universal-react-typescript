@@ -1,0 +1,26 @@
+{
+  "name": "ttwister-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Julian-Kl/ttwister-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Julian-Kl/ttwister-website/issues"
+  },
+  "homepage": "https://github.com/Julian-Kl/ttwister-website#readme",
+  "devDependencies": {
+    "ts-loader": "^9.1.0",
+    "typescript": "^4.2.4",
+    "webpack": "^5.35.0",
+    "webpack-cli": "^4.6.0"
+  }
+}
