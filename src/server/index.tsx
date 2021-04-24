@@ -7,7 +7,7 @@ import { html } from '../app/html';
 const port = 80;
 const server = express();
 
-server.use(express.static('dist'));
+server.use(express.static('public'));
 
 server.get('/', (req, res) => {
     const body = renderToString(<App name="Julian" />);

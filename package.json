@@ -2,9 +2,9 @@
   "name": "ttwister-website",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./public/server.js",
   "scripts": {
-    "build": "webpack",
+    "start": "webpack -w & nodemon ./public/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@types/express": "^4.17.11",
     "@types/react-dom": "^17.0.3",
+    "nodemon": "^2.0.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "ts-loader": "^9.1.0",
