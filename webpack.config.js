@@ -4,6 +4,7 @@ const nodeExternals = require('webpack-node-externals')
 const clientConfig = {
   entry: './src/client/index.tsx',
   mode: 'production',
+  target: 'web',
   module: {
     rules: [
       {
@@ -25,7 +26,7 @@ const clientConfig = {
 
 const serverConfig = {
   entry: './src/server/index.tsx',
-  target: 'node',
+  // target: 'node',
   externals: [nodeExternals()],
   mode: 'production',
   module: {
@@ -45,6 +46,12 @@ const serverConfig = {
     filename: 'server.js',
     path: path.resolve(__dirname, 'public'),
   },
+  devServer: {
+    contentBase: path.resolve(__dirname, 'public'),
+    compress: true,
+    hot: true,
+    port: 8080,
+  }
 };
 
 module.exports = [clientConfig, serverConfig]
