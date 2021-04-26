@@ -28,4 +28,4 @@ server.get('*', (req, res, next) => {
     )
   })
 
-server.listen(port, () => console.log(`Example app listening on port ${port}!`));
+server.listen(port, () => console.log(`App listening on port ${port}!`));
