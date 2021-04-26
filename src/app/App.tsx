@@ -1,13 +1,23 @@
-import React, { StrictMode } from 'react'
+import React, { StrictMode } from "react";
+import routes from "./routes";
+import { Route, Link, Redirect, Switch } from "react-router-dom";
+import NoMatch from "./NoMatch";
 
-interface AppProps {
-    name: string
-}
-
-export const App: React.FC<AppProps> = (props) => {
-    return(
-        <StrictMode>
-            <p>Hello {props.name}</p>
-        </StrictMode>
-    );
-}
+export const App: React.FC = () => {
+  return (
+    <StrictMode>
+      <p>Navbar placeholder</p>
+      <Switch>
+        {routes.map(({ path, exact, component }) => (
+            <Route
+                path={path}
+                exact={exact}
+            >
+                {component}
+            </Route>
+        ))}
+        <Route render={() => <NoMatch />} />
+      </Switch>
+    </StrictMode>
+  );
+};
