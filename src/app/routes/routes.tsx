@@ -1,20 +1,23 @@
 import { Home } from './home/Home'
 import { Subpage1 } from './route1/Subpage1'
 
-interface routeObjects {
-    path: string | string[]
+export interface routeObject {
+    path: string
+    name: string
     exact: boolean
     component: React.ReactNode
 }
 
-const routes: routeObjects[] = [
+const routes: routeObject[] = [
     {
         path: '/',
+        name: 'Home',
         exact: true,
         component: Home,
     },
     {
         path: '/subpage1',
+        name: 'Subpage1',
         exact: true,
         component: Subpage1,
     },

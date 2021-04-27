@@ -10887,89 +10887,88 @@
                     return e
                 },
                 Q = e.forwardRef
-            void 0 === Q && (Q = H),
-                Q(function (t, n) {
-                    var r = t['aria-current'],
-                        a = void 0 === r ? 'page' : r,
-                        l = t.activeClassName,
-                        o = void 0 === l ? 'active' : l,
-                        u = t.activeStyle,
-                        c = t.className,
-                        f = t.exact,
-                        d = t.isActive,
-                        p = t.location,
-                        h = t.sensitive,
-                        m = t.strict,
-                        v = t.style,
-                        y = t.to,
-                        g = t.innerRef,
-                        b = N(t, [
-                            'aria-current',
-                            'activeClassName',
-                            'activeStyle',
-                            'className',
-                            'exact',
-                            'isActive',
-                            'location',
-                            'sensitive',
-                            'strict',
-                            'style',
-                            'to',
-                            'innerRef',
-                        ])
-                    return e.createElement(L.Consumer, null, function (t) {
-                        t || s(!1)
-                        var r = p || t.location,
-                            l = j(A(y, r), r),
-                            w = l.pathname,
-                            k =
-                                w &&
-                                w.replace(/([.+*?=^!:${}()[\]|/\\])/g, '\\$1'),
-                            E = k
-                                ? F(r.pathname, {
-                                      path: k,
-                                      exact: f,
-                                      sensitive: h,
-                                      strict: m,
-                                  })
-                                : null,
-                            S = !!(d ? d(E, r) : E),
-                            x = S
-                                ? (function () {
-                                      for (
-                                          var e = arguments.length,
-                                              t = new Array(e),
-                                              n = 0;
-                                          n < e;
-                                          n++
-                                      )
-                                          t[n] = arguments[n]
-                                      return t
-                                          .filter(function (e) {
-                                              return e
-                                          })
-                                          .join(' ')
-                                  })(c, o)
-                                : c,
-                            C = S ? i({}, v, {}, u) : v,
-                            _ = i(
-                                {
-                                    'aria-current': (S && a) || null,
-                                    className: x,
-                                    style: C,
-                                    to: l,
-                                },
-                                b
-                            )
-                        return (
-                            H !== Q ? (_.ref = n || g) : (_.innerRef = g),
-                            e.createElement(W, _)
+            void 0 === Q && (Q = H)
+            var q = Q(function (t, n) {
+                var r = t['aria-current'],
+                    a = void 0 === r ? 'page' : r,
+                    l = t.activeClassName,
+                    o = void 0 === l ? 'active' : l,
+                    u = t.activeStyle,
+                    c = t.className,
+                    f = t.exact,
+                    d = t.isActive,
+                    p = t.location,
+                    h = t.sensitive,
+                    m = t.strict,
+                    v = t.style,
+                    y = t.to,
+                    g = t.innerRef,
+                    b = N(t, [
+                        'aria-current',
+                        'activeClassName',
+                        'activeStyle',
+                        'className',
+                        'exact',
+                        'isActive',
+                        'location',
+                        'sensitive',
+                        'strict',
+                        'style',
+                        'to',
+                        'innerRef',
+                    ])
+                return e.createElement(L.Consumer, null, function (t) {
+                    t || s(!1)
+                    var r = p || t.location,
+                        l = j(A(y, r), r),
+                        w = l.pathname,
+                        k = w && w.replace(/([.+*?=^!:${}()[\]|/\\])/g, '\\$1'),
+                        E = k
+                            ? F(r.pathname, {
+                                  path: k,
+                                  exact: f,
+                                  sensitive: h,
+                                  strict: m,
+                              })
+                            : null,
+                        S = !!(d ? d(E, r) : E),
+                        x = S
+                            ? (function () {
+                                  for (
+                                      var e = arguments.length,
+                                          t = new Array(e),
+                                          n = 0;
+                                      n < e;
+                                      n++
+                                  )
+                                      t[n] = arguments[n]
+                                  return t
+                                      .filter(function (e) {
+                                          return e
+                                      })
+                                      .join(' ')
+                              })(c, o)
+                            : c,
+                        C = S ? i({}, v, {}, u) : v,
+                        _ = i(
+                            {
+                                'aria-current': (S && a) || null,
+                                className: x,
+                                style: C,
+                                to: l,
+                            },
+                            b
                         )
-                    })
+                    return (
+                        H !== Q ? (_.ref = n || g) : (_.innerRef = g),
+                        e.createElement(W, _)
+                    )
                 })
-            const q = [
+            })
+            const K = [
                 {
                     path: '/',
+                    name: 'Home',
                     exact: !0,
                     component: function () {
                         return e.createElement('p', null, 'Startseite')
@@ -10977,24 +10976,48 @@
                 },
                 {
                     path: '/subpage1',
+                    name: 'Subpage1',
                     exact: !0,
                     component: function () {
                         return e.createElement('p', null, 'Subpage1')
                     },
                 },
             ]
-            var K = function () {
+            var Y = function () {
                     return e.createElement('div', null, 'Four Oh Four')
                 },
-                Y = function () {
+                X = function (t) {
+                    var n = t.routes
+                    return e.createElement(
+                        'ul',
+                        null,
+                        n.map(function (t, n) {
+                            var r = t.name,
+                                a = t.path
+                            return e.createElement(
+                                'li',
+                                { key: n },
+                                e.createElement(
+                                    q,
+                                    {
+                                        activeStyle: { fontWeight: 'bold' },
+                                        to: { pathname: a },
+                                    },
+                                    r
+                                )
+                            )
+                        })
+                    )
+                },
+                G = function () {
                     return e.createElement(
                         U,
                         null,
-                        e.createElement('p', null, 'Navbar placeholder'),
+                        e.createElement(X, { routes: K }),
                         e.createElement(
                             I,
                             null,
-                            q.map(function (t, n) {
+                            K.map(function (t, n) {
                                 var r = t.path,
                                     a = t.exact,
                                     l = t.component
@@ -11007,7 +11030,7 @@
                             e.createElement(D, {
                                 key: '404',
                                 render: function () {
-                                    return e.createElement(K, null)
+                                    return e.createElement(Y, null)
                                 },
                             })
                         )
@@ -11021,7 +11044,7 @@
                         return e.createElement(
                             e.StrictMode,
                             null,
-                            e.createElement(Y, null)
+                            e.createElement(G, null)
                         )
                     }, null)
                 ),
