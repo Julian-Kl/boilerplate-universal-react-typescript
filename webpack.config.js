@@ -2,7 +2,7 @@ const path = require('path')
 const nodeExternals = require('webpack-node-externals')
 
 const clientConfig = {
-    entry: './src/client/index.tsx',
+    entry: './src/client.tsx',
     mode: 'production',
     target: 'web',
     module: {
@@ -10,6 +10,7 @@ const clientConfig = {
             {
                 test: /\.tsx$/,
                 include: [path.resolve(__dirname, 'src')],
+                exclude: [path.resolve(__dirname, 'node_modules')],
                 use: 'ts-loader',
             },
         ],
@@ -25,7 +26,7 @@ const clientConfig = {
 }
 
 const serverConfig = {
-    entry: './src/server/index.tsx',
+    entry: './src/server.tsx',
     // target: 'node',
     externals: [nodeExternals()],
     mode: 'production',
@@ -34,6 +35,7 @@ const serverConfig = {
             {
                 test: /\.tsx$/,
                 include: [path.resolve(__dirname, 'src')],
+                exclude: [path.resolve(__dirname, 'node_modules')],
                 use: 'ts-loader',
             },
         ],

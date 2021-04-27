@@ -2,8 +2,8 @@ import React from 'react'
 import express from 'express'
 import { renderToString } from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
-import { html } from '../app/html'
-import { App } from '../app/App'
+import { html } from './app/html'
+import { App } from './app/App'
 
 const port = 80
 const server = express()

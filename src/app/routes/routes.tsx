@@ -1,9 +1,7 @@
-import { Start } from './routes/start/start'
-import { Events } from './routes/events/events'
-import { Key } from 'react'
+import { Start } from './start/start'
+import { Events } from './events/events'
 
 interface routeObjects {
-    key: Key
     path: string | string[]
     exact: boolean
     component: React.ReactNode
@@ -11,13 +9,11 @@ interface routeObjects {
 
 const routes: routeObjects[] = [
     {
-        key: '/',
         path: '/',
         exact: true,
         component: Start,
     },
     {
-        key: '/events',
         path: '/events',
         exact: true,
         component: Events,

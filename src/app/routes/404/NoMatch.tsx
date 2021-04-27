@@ -1,7 +1,5 @@
 import React from 'react'
 
-const NoMatch: React.FC = () => {
+export const NoMatch: React.FC = () => {
     return <div>Four Oh Four</div>
 }
-
-export default NoMatch
