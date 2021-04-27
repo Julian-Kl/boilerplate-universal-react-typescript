@@ -10972,22 +10972,14 @@
                     path: '/',
                     exact: !0,
                     component: function () {
-                        return e.createElement(
-                            'div',
-                            null,
-                            e.createElement('p', null, 'Startseite')
-                        )
+                        return e.createElement('p', null, 'Startseite')
                     },
                 },
                 {
-                    path: '/events',
+                    path: '/subpage1',
                     exact: !0,
                     component: function () {
-                        return e.createElement(
-                            'div',
-                            null,
-                            e.createElement('p', null, 'Events')
-                        )
+                        return e.createElement('p', null, 'Subpage1')
                     },
                 },
             ]

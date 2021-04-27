@@ -1,5 +1,5 @@
-import { Start } from './start/start'
-import { Events } from './events/events'
+import { Home } from './home/Home'
+import { Subpage1 } from './route1/Subpage1'
 
 interface routeObjects {
     path: string | string[]
@@ -11,12 +11,12 @@ const routes: routeObjects[] = [
     {
         path: '/',
         exact: true,
-        component: Start,
+        component: Home,
     },
     {
-        path: '/events',
+        path: '/subpage1',
         exact: true,
-        component: Events,
+        component: Subpage1,
     },
 ]
 
