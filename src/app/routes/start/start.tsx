@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const Start = () => {
-    return(
+export const Start: React.FC = () => {
+    return (
         <div>
             <p>Startseite</p>
         </div>
