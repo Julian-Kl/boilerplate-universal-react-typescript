@@ -46,6 +46,7 @@
     "dependencies": {
         "build": "^0.1.4",
         "express": "^4.17.1",
+        "react-helmet": "^6.1.0",
         "react-router": "^5.2.0",
         "react-router-dom": "^5.2.0"
     }

@@ -11,12 +11,7 @@ export const Navbar: React.FC<Props> = ({ routes }: Props) => {
         <ul>
             {routes.map(({ name, path }, key) => (
                 <li key={key}>
-                    <NavLink
-                        activeStyle={{ fontWeight: 'bold' }}
-                        to={{ pathname: path }}
-                    >
-                        {name}
-                    </NavLink>
+                    <NavLink to={{ pathname: path }}>{name}</NavLink>
                 </li>
             ))}
         </ul>
