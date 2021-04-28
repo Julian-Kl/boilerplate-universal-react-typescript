@@ -6,8 +6,7 @@ export const Home: React.FC = () => {
         <>
             <Helmet>
                 <title>Home</title>
-                <meta name='description' content='Home' />
-                <meta property='og:title' content='Home' />
+                <meta name='description' content='This is Home' />
             </Helmet>
             <p>Startseite</p>
         </>

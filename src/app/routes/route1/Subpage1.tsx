@@ -6,10 +6,9 @@ export const Subpage1: React.FC = () => {
         <>
             <Helmet>
                 <title>Subpage1</title>
-                <meta name='description' content='Subpage1' />
-                <meta property='og:title' content='Subpage1' />
+                <meta name='description' content='This is Subpage1' />
             </Helmet>
-            <p>Startseite</p>
+            <p>Subage1</p>
         </>
     )
 }

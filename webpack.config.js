@@ -3,8 +3,8 @@ const nodeExternals = require('webpack-node-externals')
 
 const clientConfig = {
     entry: './src/client.tsx',
-    externals: ['react-helmet'],
     mode: 'production',
+    externals: ['react-helmet'],
     target: 'web',
     module: {
         rules: [
@@ -13,6 +13,19 @@ const clientConfig = {
                 include: [path.resolve(__dirname, 'src')],
                 exclude: [path.resolve(__dirname, 'node_modules')],
                 use: 'ts-loader',
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                include: [path.resolve(__dirname, 'src')],
+                exclude: [path.resolve(__dirname, 'node_modules')],
+                use: [
+                    // Creates `style` nodes from JS strings
+                    'style-loader',
+                    // Translates CSS into CommonJS
+                    'css-loader',
+                    // Compiles Sass to CSS
+                    'sass-loader',
+                ],
             },
         ],
     },
@@ -28,7 +41,7 @@ const clientConfig = {
 
 const serverConfig = {
     entry: './src/server.tsx',
-    // target: 'node',
+    target: 'node',
     externals: ['react-helmet', nodeExternals()],
     mode: 'production',
     module: {
@@ -38,6 +51,19 @@ const serverConfig = {
                 include: [path.resolve(__dirname, 'src')],
                 exclude: [path.resolve(__dirname, 'node_modules')],
                 use: 'ts-loader',
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                include: [path.resolve(__dirname, 'src')],
+                exclude: [path.resolve(__dirname, 'node_modules')],
+                use: [
+                    // Creates `style` nodes from JS strings
+                    'style-loader',
+                    // Translates CSS into CommonJS
+                    'css-loader',
+                    // Compiles Sass to CSS
+                    'sass-loader',
+                ],
             },
         ],
     },
