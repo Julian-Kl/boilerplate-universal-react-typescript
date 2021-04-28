@@ -3,6 +3,7 @@ const nodeExternals = require('webpack-node-externals')
 
 const clientConfig = {
     entry: './src/client.tsx',
+    externals: ['react-helmet'],
     mode: 'production',
     target: 'web',
     module: {
@@ -28,7 +29,7 @@ const clientConfig = {
 const serverConfig = {
     entry: './src/server.tsx',
     // target: 'node',
-    externals: [nodeExternals()],
+    externals: ['react-helmet', nodeExternals()],
     mode: 'production',
     module: {
         rules: [
