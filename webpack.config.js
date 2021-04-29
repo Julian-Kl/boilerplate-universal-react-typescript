@@ -1,5 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 
 const clientConfig = {
@@ -19,23 +21,18 @@ const clientConfig = {
                 exclude: [path.resolve(__dirname, 'node_modules')],
                 use: 'ts-loader',
             },
-            {
-                test: /\.s[ac]ss$/i,
-                include: [path.resolve(__dirname, 'src')],
-                exclude: [path.resolve(__dirname, 'node_modules')],
-                use: [
-                    // Creates `style` nodes from JS strings
-                    'style-loader',
-                    // Translates CSS into CommonJS
-                    'css-loader',
-                    // Compiles Sass to CSS
-                    'sass-loader',
-                ],
-            },
         ],
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new TerserPlugin({
+                extractComments: false,
+            }),
+        ],
     },
     plugins: [
         new webpack.DefinePlugin({
@@ -67,12 +64,12 @@ const serverConfig = {
                 include: [path.resolve(__dirname, 'src')],
                 exclude: [path.resolve(__dirname, 'node_modules')],
                 use: [
-                    // Creates `style` nodes from JS strings
-                    'isomorphic-style-loader',
-                    // Translates CSS into CommonJS
-                    'css-loader',
-                    // Compiles Sass to CSS
-                    'sass-loader',
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: { sourceMap: true, importLoaders: 1 },
+                    },
+                    { loader: 'sass-loader', options: { sourceMap: true } },
                 ],
             },
         ],
@@ -80,9 +77,20 @@ const serverConfig = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new TerserPlugin({
+                extractComments: false,
+            }),
+        ],
+    },
     plugins: [
         new webpack.DefinePlugin({
             __isBrowser__: 'false',
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'app.css',
         }),
     ],
 }

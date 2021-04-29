@@ -7,6 +7,7 @@ export const html = (helmet: HelmetData, body: string): string => `
     ${helmet.title.toString()}
     ${helmet.meta.toString()}
     ${helmet.link.toString()}
+    <link rel="stylesheet" type="text/css" href="app.css" media="screen" />
   </head>
   <body ${helmet.bodyAttributes.toString()}>
     <div id="app">${body}</div>
