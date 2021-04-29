@@ -11,14 +11,13 @@ const server = express()
 
 server.use(express.static('public'))
 
-const helmet = Helmet.renderStatic()
-
 server.get('*', (req, res) => {
     const body = renderToString(
         <StaticRouter location={req.url}>
             <App />
         </StaticRouter>
     )
+    const helmet = Helmet.renderStatic()
 
     res.send(html(helmet, body))
 })

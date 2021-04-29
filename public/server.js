@@ -118,36 +118,36 @@
             )
         },
         d = a()()
-    d.use(a().static('public'))
-    var E = u.Helmet.renderStatic()
-    d.get('*', function (e, t) {
-        var r = (0, l.renderToString)(
-            n().createElement(
-                c.StaticRouter,
-                { location: e.url },
-                n().createElement(p, null)
+    d.use(a().static('public')),
+        d.get('*', function (e, t) {
+            var r = (0, l.renderToString)(
+                    n().createElement(
+                        c.StaticRouter,
+                        { location: e.url },
+                        n().createElement(p, null)
+                    )
+                ),
+                a = u.Helmet.renderStatic()
+            t.send(
+                (function (e, t) {
+                    return (
+                        '\n<!DOCTYPE html>\n<html ' +
+                        e.htmlAttributes.toString() +
+                        '>\n  <head>\n    ' +
+                        e.title.toString() +
+                        '\n    ' +
+                        e.meta.toString() +
+                        '\n    ' +
+                        e.link.toString() +
+                        '\n    <link rel="stylesheet" type="text/css" href="app.css" media="screen" />\n  </head>\n  <body ' +
+                        e.bodyAttributes.toString() +
+                        '>\n    <div id="app">' +
+                        t +
+                        '</div>\n  </body>\n  <script src="client.js" defer></script>\n</html>\n'
+                    )
+                })(a, r)
             )
-        )
-        t.send(
-            (function (e, t) {
-                return (
-                    '\n<!DOCTYPE html>\n<html ' +
-                    e.htmlAttributes.toString() +
-                    '>\n  <head>\n    ' +
-                    e.title.toString() +
-                    '\n    ' +
-                    e.meta.toString() +
-                    '\n    ' +
-                    e.link.toString() +
-                    '\n    <link rel="stylesheet" type="text/css" href="app.css" media="screen" />\n  </head>\n  <body ' +
-                    e.bodyAttributes.toString() +
-                    '>\n    <div id="app">' +
-                    t +
-                    '</div>\n  </body>\n  <script src="client.js" defer></script>\n</html>\n'
-                )
-            })(E, r)
-        )
-    }),
+        }),
         d.listen(80, function () {
             return console.log('App listening on port 80!')
         })
