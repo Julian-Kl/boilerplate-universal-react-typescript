@@ -21,6 +21,17 @@ const clientConfig = {
                 exclude: [path.resolve(__dirname, 'node_modules')],
                 use: 'ts-loader',
             },
+            {
+                test: /\.s[ac]ss$/i,
+                include: [path.resolve(__dirname, 'src')],
+                exclude: [path.resolve(__dirname, 'node_modules')],
+                use: [
+                    // Translates CSS into CommonJS
+                    'css-loader',
+                    // Compiles Sass to CSS
+                    'sass-loader',
+                ],
+            },
         ],
     },
     resolve: {
@@ -45,7 +56,7 @@ const serverConfig = {
     entry: './src/server.tsx',
     mode: 'production',
     target: 'node',
-    externals: [nodeExternals(), 'react-helmet'],
+    externals: [nodeExternals()],
     output: {
         publicPath: '/',
         filename: 'server.js',
@@ -67,9 +78,17 @@ const serverConfig = {
                     MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
-                        options: { sourceMap: true, importLoaders: 1 },
+                        options: {
+                            sourceMap: true,
+                            importLoaders: 1,
+                        },
                     },
-                    { loader: 'sass-loader', options: { sourceMap: true } },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
                 ],
             },
         ],
