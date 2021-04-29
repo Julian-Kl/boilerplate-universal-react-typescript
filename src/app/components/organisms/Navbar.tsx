@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { routeObject } from '../../routes/routes'
+import { routeObject } from '../../router/routes'
 import './navbar.scss'
 
 interface Props {
