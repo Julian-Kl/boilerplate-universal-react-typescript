@@ -1,5 +1,5 @@
 import React, { StrictMode } from 'react'
-import { Router } from './routes/Router'
+import { Router } from './router/Router'
 
 export const App: React.FC = () => {
     return (
