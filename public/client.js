@@ -6,11 +6,7 @@
                     a = n.n(r)()(function (e) {
                         return e[1]
                     })
-                a.push([
-                    e.id,
-                    '.navbar{font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif}',
-                    '',
-                ])
+                a.push([e.id, '.navbar{font-family:Impact,sans-serif}', ''])
             },
             645: (e) => {
                 'use strict'

@@ -1,5 +1,5 @@
-import { Home } from './home/Home'
-import { Subpage1 } from './route1/Subpage1'
+import { Home } from './../pages/home/Home'
+import { Subpage1 } from './../pages/route1/Subpage1'
 
 export interface routeObject {
     path: string

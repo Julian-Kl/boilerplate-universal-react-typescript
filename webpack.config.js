@@ -5,6 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 
 const clientConfig = {
+    name: 'clientConfig',
     entry: './src/client.tsx',
     mode: 'production',
     target: 'web',
@@ -53,6 +54,7 @@ const clientConfig = {
 }
 
 const serverConfig = {
+    name: 'serverConfig',
     entry: './src/server.tsx',
     mode: 'production',
     target: 'node',
