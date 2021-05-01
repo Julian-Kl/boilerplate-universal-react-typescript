@@ -116,4 +116,68 @@ const serverConfig = {
     ],
 }
 
-module.exports = [clientConfig, serverConfig]
+const devConfig = {
+    name: 'devConfig',
+    entry: './src/client.tsx',
+    mode: 'development',
+    target: 'web',
+    output: {
+        publicPath: 'dev',
+        filename: 'client.js',
+        path: path.resolve(__dirname, 'dev'),
+    },
+    devServer: {
+        contentBase: path.join(__dirname, 'dev'),
+        compress: false,
+        port: 3000,
+    },
+    module: {
+        rules: [
+            {
+                test: /\.tsx$/,
+                include: [path.resolve(__dirname, 'src')],
+                exclude: [path.resolve(__dirname, 'node_modules')],
+                use: 'ts-loader',
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                include: [path.resolve(__dirname, 'src')],
+                exclude: [path.resolve(__dirname, 'node_modules')],
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                            importLoaders: 1,
+                        },
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                ],
+            },
+        ],
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new TerserPlugin({
+                extractComments: false,
+            }),
+        ],
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'app.css',
+        }),
+    ],
+}
+
+module.exports = [clientConfig, serverConfig, devConfig]

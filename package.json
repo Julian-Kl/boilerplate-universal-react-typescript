@@ -4,6 +4,9 @@
     "description": "",
     "main": "./public/server.js",
     "scripts": {
+        "start:dev": "webpack -w --config-name devConfig & webpack serve",
+        "watch:dev": "webpack -w --config-name devConfig",
+        "build:dev": "webpack --config-name devConfig",
         "start:server": "webpack -w --config-name clientConfig --config-name serverConfig & nodemon ./public/server.js",
         "watch:server": "webpack -w --config-name clientConfig --config-name serverConfig",
         "build:server": "webpack --config-name clientConfig --config-name serverConfig",
