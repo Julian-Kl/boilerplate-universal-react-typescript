@@ -128,8 +128,17 @@ const devConfig = {
     },
     devServer: {
         contentBase: path.join(__dirname, 'dev'),
-        compress: false,
+        index: 'index.html',
+        compress: true,
+        liveReload: false,
+        hot: true,
+        overlay: {
+            warnings: true,
+            errors: true,
+        },
+        stats: 'normal',
         port: 3000,
+        open: true,
     },
     module: {
         rules: [
