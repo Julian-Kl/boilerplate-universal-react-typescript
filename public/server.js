@@ -19,8 +19,8 @@
     var a = e.n(r)
     const l = require('react-dom/server'),
         c = require('react-router-dom'),
-        u = require('react-helmet')
-    const o = [
+        o = require('react-helmet')
+    const u = [
         {
             path: '/',
             name: 'Home',
@@ -30,7 +30,7 @@
                     n().Fragment,
                     null,
                     n().createElement(
-                        u.Helmet,
+                        o.Helmet,
                         null,
                         n().createElement('title', null, 'Home'),
                         n().createElement('meta', {
@@ -51,7 +51,7 @@
                     n().Fragment,
                     null,
                     n().createElement(
-                        u.Helmet,
+                        o.Helmet,
                         null,
                         n().createElement('title', null, 'Subpage1'),
                         n().createElement('meta', {
@@ -87,11 +87,11 @@
             return n().createElement(
                 n().Fragment,
                 null,
-                n().createElement(m, { routes: o }),
+                n().createElement(m, { routes: u }),
                 n().createElement(
                     c.Switch,
                     null,
-                    o.map(function (e, t) {
+                    u.map(function (e, t) {
                         var r = e.path,
                             a = e.exact,
                             l = e.component
@@ -123,7 +123,7 @@
                         n().createElement(p, null)
                     )
                 ),
-                a = u.Helmet.renderStatic()
+                a = o.Helmet.renderStatic()
             t.send(
                 (function (e, t) {
                     return (
@@ -137,7 +137,7 @@
                         e.link.toString() +
                         '\n    <link rel="stylesheet" type="text/css" href="app.css" media="screen" />\n  </head>\n  <body ' +
                         e.bodyAttributes.toString() +
-                        '>\n    <div id="app">' +
+                        '>\n    <noscript>You need to enable JavaScript to run this app.</noscript>\n    <div id="app">' +
                         t +
                         '</div>\n  </body>\n  <script src="client.js" defer></script>\n</html>\n'
                     )
