@@ -1,0 +1,17 @@
+@use '../config/fonts' as *;
+@use '../config/colors' as *;
+@use '../functions/rem-convert' as *;
+
+@mixin link {
+    font-family: $main-font;
+    font-size: rem(20px);
+    color: $color-primary;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+@mixin text {
+    font: $main-font;
+    font-size: rem(16px);
+    color: $color-darkgray;
+}

@@ -96,6 +96,18 @@
                     '__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://ttwister-website/./src/app/components/organisms/navbar.scss?'
                 )
             },
+            './src/app/styles/app.scss': /*!*********************************!*\
+  !*** ./src/app/styles/app.scss ***!
+  \*********************************/ (
+                __unused_webpack_module,
+                __webpack_exports__,
+                __webpack_require__
+            ) => {
+                'use strict'
+                eval(
+                    '__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://ttwister-website/./src/app/styles/app.scss?'
+                )
+            },
             './node_modules/object-assign/index.js': /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
   \*********************************************/ (
@@ -390,7 +402,7 @@
             ) => {
                 'use strict'
                 eval(
-                    '__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   "App": () => (/* binding */ App)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");\n/* harmony import */ var _router_Router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router/Router */ "./src/app/router/Router.tsx");\n\n\nvar App = function () {\n    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, null,\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_router_Router__WEBPACK_IMPORTED_MODULE_1__.Router, null)));\n};\n\n\n//# sourceURL=webpack://ttwister-website/./src/app/App.tsx?'
+                    '__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   "App": () => (/* binding */ App)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");\n/* harmony import */ var _styles_app_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/app.scss */ "./src/app/styles/app.scss");\n/* harmony import */ var _router_Router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./router/Router */ "./src/app/router/Router.tsx");\n\n\n\nvar App = function () {\n    return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_router_Router__WEBPACK_IMPORTED_MODULE_2__.Router, null);\n};\n\n\n//# sourceURL=webpack://ttwister-website/./src/app/App.tsx?'
                 )
             },
             './src/app/components/organisms/Navbar.tsx': /*!*************************************************!*\
@@ -474,7 +486,7 @@
             ) => {
                 'use strict'
                 eval(
-                    '__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");\n/* harmony import */ var _app_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/App */ "./src/app/App.tsx");\n/* harmony import */ var web_vitals__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! web-vitals */ "./node_modules/web-vitals/dist/web-vitals.js");\n\n\n\n\n\n(0,react_dom__WEBPACK_IMPORTED_MODULE_1__.hydrate)(react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, null,\n    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_app_App__WEBPACK_IMPORTED_MODULE_2__.App, null)), document.getElementById(\'app\'));\n(0,web_vitals__WEBPACK_IMPORTED_MODULE_3__.getCLS)(console.log);\n(0,web_vitals__WEBPACK_IMPORTED_MODULE_3__.getFID)(console.log);\n(0,web_vitals__WEBPACK_IMPORTED_MODULE_3__.getLCP)(console.log);\n\n\n//# sourceURL=webpack://ttwister-website/./src/client.tsx?'
+                    '__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");\n/* harmony import */ var _app_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/App */ "./src/app/App.tsx");\n/* harmony import */ var web_vitals__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! web-vitals */ "./node_modules/web-vitals/dist/web-vitals.js");\n\n\n\n\n\n(0,react_dom__WEBPACK_IMPORTED_MODULE_1__.hydrate)(react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, null,\n    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, null,\n        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_app_App__WEBPACK_IMPORTED_MODULE_2__.App, null))), document.getElementById(\'app\'));\n(0,web_vitals__WEBPACK_IMPORTED_MODULE_3__.getCLS)(console.log);\n(0,web_vitals__WEBPACK_IMPORTED_MODULE_3__.getFID)(console.log);\n(0,web_vitals__WEBPACK_IMPORTED_MODULE_3__.getLCP)(console.log);\n\n\n//# sourceURL=webpack://ttwister-website/./src/client.tsx?'
                 )
             },
             './node_modules/value-equal/esm/value-equal.js': /*!*****************************************************!*\

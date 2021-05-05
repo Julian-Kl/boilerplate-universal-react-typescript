@@ -1,1 +1,2 @@
-@use './utility';
+@forward './utility';
+@use './config' as *;

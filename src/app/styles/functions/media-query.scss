@@ -1,7 +1,5 @@
 @use '../config/breakpoints';
 
-// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
-// Makes the @content apply to the given breakpoint and wider.
 @mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
     $min: breakpoint-min($name, $breakpoints);
     @if $min {
@@ -13,8 +11,6 @@
     }
 }
 
-// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
-// Makes the @content apply to the given breakpoint and narrower.
 @mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
     $max: breakpoint-max($name, $breakpoints);
     @if $max {

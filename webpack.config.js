@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 
@@ -44,6 +45,7 @@ const clientConfig = {
             new TerserPlugin({
                 extractComments: false,
             }),
+            new CssMinimizerPlugin(),
         ],
     },
     plugins: [

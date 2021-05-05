@@ -1,6 +1,14 @@
-@use '../../styles/template' as *;
+@use '../../styles' as *;
 
 .navbar {
-    font-family: $main-font;
-    background-color: #f08080;
+    list-style-type: none;
+    padding: rem(15px);
+    display: flex;
+    background-color: $color-darkgray;
+
+    li a {
+        padding: rem(5px) rem(15px);
+        display: inline-block;
+        @include link;
+    }
 }
