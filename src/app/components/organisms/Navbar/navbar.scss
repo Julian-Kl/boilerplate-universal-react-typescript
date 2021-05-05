@@ -1,0 +1,8 @@
+@use '../../../styles' as *;
+
+.navbar {
+    list-style-type: none;
+    padding: rem(15px);
+    display: flex;
+    background-color: $color-darkgray;
+}

@@ -177,9 +177,22 @@ template {
 [hidden] {
     display: none;
 }
-.navbar {
-    font: Impact, sans-serif;
+.navbar-link {
+    padding: 0.3125rem 0.9375rem;
+    display: inline-block;
+    font-family: Impact, sans-serif;
     font-size: 1.25rem;
-    color: #041f79;
+    color: #002ec5;
     text-decoration: none;
+    list-style-type: none;
+}
+.navbar-link .active {
+    color: #fff;
+}
+
+.navbar {
+    list-style-type: none;
+    padding: 0.9375rem;
+    display: flex;
+    background-color: #272727;
 }

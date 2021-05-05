@@ -1,0 +1,11 @@
+@use '../../../styles' as *;
+
+.navbar-link {
+    padding: rem(5px) rem(15px);
+    display: inline-block;
+    @include link;
+}
+
+.navbar-link.active {
+    color: $color-white;
+}

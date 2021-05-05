@@ -68,6 +68,24 @@
             return n().createElement('div', null, 'Four Oh Four')
         },
         m = function (e) {
+            return n().createElement(
+                c.NavLink,
+                {
+                    to: { pathname: e.path },
+                    className: 'navbar-link',
+                    exact: !0,
+                },
+                e.name
+            )
+        },
+        s = function (e) {
+            return n().createElement(
+                'li',
+                { key: e.key },
+                n().createElement(m, { path: e.path, name: e.name })
+            )
+        },
+        p = function (e) {
             var t = e.routes
             return n().createElement(
                 'ul',
@@ -75,19 +93,15 @@
                 t.map(function (e, t) {
                     var r = e.name,
                         a = e.path
-                    return n().createElement(
-                        'li',
-                        { key: t },
-                        n().createElement(c.NavLink, { to: { pathname: a } }, r)
-                    )
+                    return n().createElement(s, { key: t, name: r, path: a })
                 })
             )
         },
-        s = function () {
+        E = function () {
             return n().createElement(
                 n().Fragment,
                 null,
-                n().createElement(m, { routes: u }),
+                n().createElement(p, { routes: u }),
                 n().createElement(
                     c.Switch,
                     null,
@@ -110,17 +124,17 @@
                 )
             )
         },
-        p = function () {
-            return n().createElement(s, null)
+        d = function () {
+            return n().createElement(E, null)
         },
-        d = a()()
-    d.use(a().static('public')),
-        d.get('*', function (e, t) {
+        h = a()()
+    h.use(a().static('public')),
+        h.get('*', function (e, t) {
             var r = (0, l.renderToString)(
                     n().createElement(
                         c.StaticRouter,
                         { location: e.url },
-                        n().createElement(p, null)
+                        n().createElement(d, null)
                     )
                 ),
                 a = o.Helmet.renderStatic()
@@ -144,7 +158,7 @@
                 })(a, r)
             )
         }),
-        d.listen(80, function () {
+        h.listen(80, function () {
             return console.log('App listening on port 80!')
         })
 })()
