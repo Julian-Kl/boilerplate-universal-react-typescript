@@ -122,9 +122,7 @@ const devConfig = {
     name: 'devConfig',
     entry: './src/client.tsx',
     mode: 'development',
-    target: 'web',
     output: {
-        publicPath: 'dev',
         filename: 'client.js',
         path: path.resolve(__dirname, 'dev'),
     },
@@ -138,7 +136,7 @@ const devConfig = {
             warnings: true,
             errors: true,
         },
-        stats: 'normal',
+        stats: 'errors-only',
         port: 3000,
         open: true,
     },
@@ -155,7 +153,9 @@ const devConfig = {
                 include: [path.resolve(__dirname, 'src')],
                 exclude: [path.resolve(__dirname, 'node_modules')],
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'style-loader',
+                    },
                     {
                         loader: 'css-loader',
                         options: {
@@ -176,19 +176,6 @@ const devConfig = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
-    optimization: {
-        minimize: true,
-        minimizer: [
-            new TerserPlugin({
-                extractComments: false,
-            }),
-        ],
-    },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: 'app.css',
-        }),
-    ],
 }
 
 module.exports = [clientConfig, serverConfig, devConfig]

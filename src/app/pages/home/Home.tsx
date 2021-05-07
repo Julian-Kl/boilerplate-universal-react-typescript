@@ -8,7 +8,7 @@ export const Home: React.FC = () => {
                 <title>Home</title>
                 <meta name='description' content='This is Home' />
             </Helmet>
-            <p>Startseite</p>
+            <p>Homepage</p>
         </>
     )
 }
