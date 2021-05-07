@@ -47,6 +47,17 @@ const clientConfig = {
                     },
                 ],
             },
+            {
+                test: /\.svg$/,
+                use: [
+                    {
+                        loader: 'svg-url-loader',
+                        options: {
+                            limit: 10000,
+                        },
+                    },
+                ],
+            },
         ],
     },
     resolve: {
@@ -117,6 +128,17 @@ const serverConfig = {
                         loader: 'url-loader',
                         options: {
                             limit: 8192,
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.svg$/,
+                use: [
+                    {
+                        loader: 'svg-url-loader',
+                        options: {
+                            limit: 10000,
                         },
                     },
                 ],
@@ -206,6 +228,17 @@ const devConfig = {
                         loader: 'url-loader',
                         options: {
                             limit: 8192,
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.svg$/,
+                use: [
+                    {
+                        loader: 'svg-url-loader',
+                        options: {
+                            limit: 10000,
                         },
                     },
                 ],
