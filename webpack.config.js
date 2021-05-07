@@ -34,6 +34,19 @@ const clientConfig = {
                     'sass-loader',
                 ],
             },
+            {
+                test: /\.(png|jpg|gif)$/i,
+                include: [path.resolve(__dirname, 'src')],
+                exclude: [path.resolve(__dirname, 'node_modules')],
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                        },
+                    },
+                ],
+            },
         ],
     },
     resolve: {
@@ -91,6 +104,19 @@ const serverConfig = {
                         loader: 'sass-loader',
                         options: {
                             sourceMap: true,
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.(png|jpg|gif)$/i,
+                include: [path.resolve(__dirname, 'src')],
+                exclude: [path.resolve(__dirname, 'node_modules')],
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
                         },
                     },
                 ],
@@ -167,6 +193,19 @@ const devConfig = {
                         loader: 'sass-loader',
                         options: {
                             sourceMap: true,
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.(png|jpg|gif)$/i,
+                include: [path.resolve(__dirname, 'src')],
+                exclude: [path.resolve(__dirname, 'node_modules')],
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
                         },
                     },
                 ],
