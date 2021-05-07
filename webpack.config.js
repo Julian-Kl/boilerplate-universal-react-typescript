@@ -42,13 +42,15 @@ const clientConfig = {
                     {
                         loader: 'url-loader',
                         options: {
-                            limit: 8192,
+                            limit: 100000,
                         },
                     },
                 ],
             },
             {
                 test: /\.svg$/,
+                include: [path.resolve(__dirname, 'src')],
+                exclude: [path.resolve(__dirname, 'node_modules')],
                 use: [
                     {
                         loader: 'svg-url-loader',
@@ -127,13 +129,15 @@ const serverConfig = {
                     {
                         loader: 'url-loader',
                         options: {
-                            limit: 8192,
+                            limit: 100000,
                         },
                     },
                 ],
             },
             {
                 test: /\.svg$/,
+                include: [path.resolve(__dirname, 'src')],
+                exclude: [path.resolve(__dirname, 'node_modules')],
                 use: [
                     {
                         loader: 'svg-url-loader',
@@ -227,13 +231,15 @@ const devConfig = {
                     {
                         loader: 'url-loader',
                         options: {
-                            limit: 8192,
+                            limit: 100000,
                         },
                     },
                 ],
             },
             {
                 test: /\.svg$/,
+                include: [path.resolve(__dirname, 'src')],
+                exclude: [path.resolve(__dirname, 'node_modules')],
                 use: [
                     {
                         loader: 'svg-url-loader',
