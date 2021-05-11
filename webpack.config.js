@@ -14,7 +14,6 @@ const clientConfig = {
         publicPath: 'public',
         filename: 'client.js',
         path: path.resolve(__dirname, 'public'),
-        assetModuleFilename: 'assets/[hash][ext][query]',
     },
     module: {
         rules: [
@@ -23,6 +22,12 @@ const clientConfig = {
                 include: [path.resolve(__dirname, 'src')],
                 exclude: [path.resolve(__dirname, 'node_modules')],
                 use: 'ts-loader',
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                include: [path.resolve(__dirname, 'src')],
+                exclude: [path.resolve(__dirname, 'node_modules')],
+                type: 'asset/source',
             },
             {
                 test: /\.(png|jpg|gif)$/i,
@@ -76,6 +81,12 @@ const serverConfig = {
                 include: [path.resolve(__dirname, 'src')],
                 exclude: [path.resolve(__dirname, 'node_modules')],
                 use: 'ts-loader',
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                include: [path.resolve(__dirname, 'src')],
+                exclude: [path.resolve(__dirname, 'node_modules')],
+                type: 'asset/resource',
             },
             {
                 test: /\.s[ac]ss$/i,
