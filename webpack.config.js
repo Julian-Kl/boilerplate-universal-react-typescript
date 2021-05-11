@@ -1,8 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 
 const clientConfig = {
@@ -14,31 +14,56 @@ const clientConfig = {
         publicPath: 'public',
         filename: 'client.js',
         path: path.resolve(__dirname, 'public'),
+        assetModuleFilename: 'assets/[hash][ext][query]',
     },
     module: {
         rules: [
             {
                 test: /\.tsx$/,
                 include: [path.resolve(__dirname, 'src')],
-                exclude: [path.resolve(__dirname, 'node_modules')],
+                exclude: [
+                    path.resolve(__dirname, 'node_modules'),
+                    path.resolve(__dirname, 'src/site'),
+                ],
                 use: 'ts-loader',
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                include: [path.resolve(__dirname, 'src')],
+                exclude: [path.resolve(__dirname, 'node_modules')],
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                            importLoaders: 1,
+                        },
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                ],
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 include: [path.resolve(__dirname, 'src')],
-                exclude: [path.resolve(__dirname, 'node_modules')],
+                exclude: [
+                    path.resolve(__dirname, 'node_modules'),
+                    path.resolve(__dirname, 'src/site'),
+                ],
                 type: 'asset/source',
             },
             {
-                test: /\.(png|jpg|gif)$/i,
+                test: /\.(png|jpg|jpeg|gif|svg)$/i,
                 include: [path.resolve(__dirname, 'src')],
-                exclude: [path.resolve(__dirname, 'node_modules')],
-                type: 'asset/resource',
-            },
-            {
-                test: /\.svg$/,
-                include: [path.resolve(__dirname, 'src')],
-                exclude: [path.resolve(__dirname, 'node_modules')],
+                exclude: [
+                    path.resolve(__dirname, 'node_modules'),
+                    path.resolve(__dirname, 'src/site'),
+                ],
                 type: 'asset/resource',
             },
         ],
@@ -52,7 +77,7 @@ const clientConfig = {
             new TerserPlugin({
                 extractComments: false,
             }),
-            new CssMinimizerPlugin(),
+            new MiniCssExtractPlugin(),
         ],
     },
     plugins: [
@@ -79,14 +104,11 @@ const serverConfig = {
             {
                 test: /\.tsx$/,
                 include: [path.resolve(__dirname, 'src')],
-                exclude: [path.resolve(__dirname, 'node_modules')],
+                exclude: [
+                    path.resolve(__dirname, 'node_modules'),
+                    path.resolve(__dirname, 'src/site'),
+                ],
                 use: 'ts-loader',
-            },
-            {
-                test: /\.(woff|woff2|eot|ttf|otf)$/i,
-                include: [path.resolve(__dirname, 'src')],
-                exclude: [path.resolve(__dirname, 'node_modules')],
-                type: 'asset/resource',
             },
             {
                 test: /\.s[ac]ss$/i,
@@ -110,15 +132,21 @@ const serverConfig = {
                 ],
             },
             {
-                test: /\.(png|jpg|gif)$/i,
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 include: [path.resolve(__dirname, 'src')],
-                exclude: [path.resolve(__dirname, 'node_modules')],
+                exclude: [
+                    path.resolve(__dirname, 'node_modules'),
+                    path.resolve(__dirname, 'src/site'),
+                ],
                 type: 'asset/resource',
             },
             {
-                test: /\.svg$/,
+                test: /\.(png|jpg|jpeg|gif|svg)$/i,
                 include: [path.resolve(__dirname, 'src')],
-                exclude: [path.resolve(__dirname, 'node_modules')],
+                exclude: [
+                    path.resolve(__dirname, 'node_modules'),
+                    path.resolve(__dirname, 'src/site'),
+                ],
                 type: 'asset/resource',
             },
         ],
@@ -141,6 +169,9 @@ const serverConfig = {
         new MiniCssExtractPlugin({
             filename: 'app.css',
         }),
+        new CopyPlugin({
+            patterns: [{ from: 'src/site', to: './' }],
+        }),
     ],
 }
 
@@ -148,6 +179,7 @@ const devConfig = {
     name: 'devConfig',
     entry: './src/client.tsx',
     mode: 'development',
+    devtool: false,
     output: {
         filename: 'client.js',
         path: path.resolve(__dirname, 'dev'),
@@ -198,9 +230,12 @@ const devConfig = {
                 ],
             },
             {
-                test: /\.(png|jpg|gif)$/i,
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 include: [path.resolve(__dirname, 'src')],
-                exclude: [path.resolve(__dirname, 'node_modules')],
+                exclude: [
+                    path.resolve(__dirname, 'node_modules'),
+                    path.resolve(__dirname, 'src/site'),
+                ],
                 use: [
                     {
                         loader: 'url-loader',
@@ -211,14 +246,17 @@ const devConfig = {
                 ],
             },
             {
-                test: /\.svg$/,
+                test: /\.(png|jpg|jpeg|gif|svg)$/i,
                 include: [path.resolve(__dirname, 'src')],
-                exclude: [path.resolve(__dirname, 'node_modules')],
+                exclude: [
+                    path.resolve(__dirname, 'node_modules'),
+                    path.resolve(__dirname, 'src/site'),
+                ],
                 use: [
                     {
-                        loader: 'svg-url-loader',
+                        loader: 'url-loader',
                         options: {
-                            limit: 10000,
+                            limit: 100000,
                         },
                     },
                 ],
@@ -228,6 +266,12 @@ const devConfig = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
+    plugins: [
+        new webpack.SourceMapDevToolPlugin({
+            filename: '[name].js.map',
+            exclude: ['/node_modules'],
+        }),
+    ],
 }
 
 module.exports = [clientConfig, serverConfig, devConfig]

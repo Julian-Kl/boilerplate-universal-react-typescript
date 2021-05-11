@@ -13,6 +13,7 @@ export const Home: React.FC = () => {
             <p>Homepage</p>
             <img src={ExampleImage}></img>
             <img src={Happy} height='200' width='200'></img>
+            <p>Willkommen</p>
         </>
     )
 }

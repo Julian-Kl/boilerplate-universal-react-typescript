@@ -3,7 +3,7 @@ import express from 'express'
 import { renderToString } from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
-import { html } from './app/html'
+import { html } from './app/index'
 import { App } from './app/App'
 
 const port = 80
