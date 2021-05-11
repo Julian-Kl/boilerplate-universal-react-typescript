@@ -36,7 +36,6 @@ const clientConfig = {
                     {
                         loader: 'css-loader',
                         options: {
-                            sourceMap: true,
                             importLoaders: 1,
                         },
                     },
@@ -119,15 +118,11 @@ const serverConfig = {
                     {
                         loader: 'css-loader',
                         options: {
-                            sourceMap: true,
                             importLoaders: 1,
                         },
                     },
                     {
                         loader: 'sass-loader',
-                        options: {
-                            sourceMap: true,
-                        },
                     },
                 ],
             },
