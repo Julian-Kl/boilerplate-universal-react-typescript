@@ -14,6 +14,7 @@ const clientConfig = {
         publicPath: 'public',
         filename: 'client.js',
         path: path.resolve(__dirname, 'public'),
+        assetModuleFilename: 'assets/[hash][ext][query]',
     },
     module: {
         rules: [
@@ -24,41 +25,16 @@ const clientConfig = {
                 use: 'ts-loader',
             },
             {
-                test: /\.s[ac]ss$/i,
-                include: [path.resolve(__dirname, 'src')],
-                exclude: [path.resolve(__dirname, 'node_modules')],
-                use: [
-                    // Translates CSS into CommonJS
-                    'css-loader',
-                    // Compiles Sass to CSS
-                    'sass-loader',
-                ],
-            },
-            {
                 test: /\.(png|jpg|gif)$/i,
                 include: [path.resolve(__dirname, 'src')],
                 exclude: [path.resolve(__dirname, 'node_modules')],
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 100000,
-                        },
-                    },
-                ],
+                type: 'asset/resource',
             },
             {
                 test: /\.svg$/,
                 include: [path.resolve(__dirname, 'src')],
                 exclude: [path.resolve(__dirname, 'node_modules')],
-                use: [
-                    {
-                        loader: 'svg-url-loader',
-                        options: {
-                            limit: 10000,
-                        },
-                    },
-                ],
+                type: 'asset/resource',
             },
         ],
     },
@@ -91,6 +67,7 @@ const serverConfig = {
         publicPath: '/',
         filename: 'server.js',
         path: path.resolve(__dirname, 'public'),
+        assetModuleFilename: 'assets/[hash][ext][query]',
     },
     module: {
         rules: [
@@ -125,27 +102,13 @@ const serverConfig = {
                 test: /\.(png|jpg|gif)$/i,
                 include: [path.resolve(__dirname, 'src')],
                 exclude: [path.resolve(__dirname, 'node_modules')],
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 100000,
-                        },
-                    },
-                ],
+                type: 'asset/resource',
             },
             {
                 test: /\.svg$/,
                 include: [path.resolve(__dirname, 'src')],
                 exclude: [path.resolve(__dirname, 'node_modules')],
-                use: [
-                    {
-                        loader: 'svg-url-loader',
-                        options: {
-                            limit: 10000,
-                        },
-                    },
-                ],
+                type: 'asset/resource',
             },
         ],
     },
