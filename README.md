@@ -1,3 +1,3 @@
 # boilerplate-universal-react-typescript
 
-Work in progress
+Template to start an universal react application with typescript
